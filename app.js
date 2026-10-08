@@ -5,6 +5,7 @@ try {const saved=JSON.parse(localStorage.getItem('chroma-nine'));if(saved&&['h',
 $('regions').innerHTML=zones.map((z,i)=>`<div class="region" style="left:${z.s[0]}%;top:${100-z.v[1]}%;width:${100-z.s[0]}%;height:${z.v[1]-z.v[0]}%">${i+1}</div>`).join('');
 function render(){
  const rgb=hsvToRgb(current.h,current.s,current.v),value=hex(rgb);
+ $('atmospheres').style.color=value;
  $('plane').style.background=`linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,hsl(${current.h} 100% 50%))`;
  $('cursor').style.left=current.s+'%';$('cursor').style.top=(100-current.v)+'%';
  for(const [id,key] of [['hue','h'],['sat','s'],['val','v']])$(id).value=current[key];
