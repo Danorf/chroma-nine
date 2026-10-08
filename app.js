@@ -1,5 +1,13 @@
 import {zones,hsvToRgb,rgbToHsv,hex,parseHex,inZone,palette,ink} from './color.js';
 const $=id=>document.getElementById(id);
+function setTheme(dark){
+ document.documentElement.dataset.theme=dark?'dark':'light';
+ $('theme-toggle').setAttribute('aria-pressed',String(dark));
+ $('theme-toggle').textContent=dark?'Tema claro':'Tema oscuro';
+ document.querySelector('meta[name="theme-color"]').content=dark?'#171914':'#f5f3ec';
+}
+try{setTheme(localStorage.getItem('chroma-nine-theme')==='dark');}catch{setTheme(false);}
+$('theme-toggle').addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('chroma-nine-theme',dark?'dark':'light');}catch{}});
 let current={h:57,s:83,v:90}, colors=palette(57);
 try {const saved=JSON.parse(localStorage.getItem('chroma-nine'));if(saved&&['h','s','v'].every(k=>Number.isFinite(saved[k])&&saved[k]>=0&&saved[k]<=(k==='h'?359:100))) {current=saved;colors=palette(current.h);}} catch {}
 $('regions').innerHTML=zones.map((z,i)=>`<div class="region" style="left:${z.s[0]}%;top:${100-z.v[1]}%;width:${100-z.s[0]}%;height:${z.v[1]-z.v[0]}%">${i+1}</div>`).join('');

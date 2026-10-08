@@ -14,6 +14,8 @@ Abre http://localhost:4173. Para verificar las conversiones y zonas: `npm test`.
 
 Elige el tono, haz clic o arrastra en el campo, o introduce un código HEX (3 o 6 dígitos). Los controles de saturación y brillo permiten usar teclado. Selecciona una tarjeta para ajustar su muestra dentro de la zona, y copia un color o la paleta completa. El tono seleccionado se recuerda localmente; la paleta vuelve a sus muestras centrales al recargar.
 
+El botón de la cabecera alterna entre tema claro y oscuro para comparar el mismo color sobre ambos fondos. La preferencia se guarda en este navegador.
+
 ## Modelo
 
 HSV y HSB son nombres para el mismo modelo aquí: H = tono, S = saturación, V/B = brillo. Saturación aumenta hacia la derecha; brillo hacia arriba. Las zonas aproximan las proporciones de la referencia visual, no una teoría universal de armonía ni un estándar colorimétrico.
