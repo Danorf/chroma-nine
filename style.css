@@ -3,3 +3,5 @@
 
 :root[data-theme="dark"]{--background:#171914;--text:#eceee5;--muted:#a9ae9f;--border:#383d32;--surface:#24281f;--accent:#c4ccae;--error:#ff9999;color-scheme:dark}
 .header-actions{display:flex;align-items:center;gap:20px}#theme-toggle{border:1px solid var(--border);border-radius:20px;padding:8px 12px;min-height:36px;font-size:11px}:root[data-theme="dark"] :focus-visible{outline-color:#b5b3ff}
+
+.generate-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:18px}#generate-palette{background:var(--text);color:var(--background);border-radius:24px;padding:12px 18px;font-size:12px}#palette-status{font-size:11px;color:var(--muted)}

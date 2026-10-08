@@ -16,6 +16,8 @@ Elige el tono, haz clic o arrastra en el campo, o introduce un código HEX (3 o 
 
 El botón de la cabecera alterna entre tema claro y oscuro para comparar el mismo color sobre ambos fondos. La preferencia se guarda en este navegador.
 
+El botón **Generar paleta** elige nuevas muestras aleatorias dentro de las cinco zonas usando el tono de Tu color. Conserva el color seleccionado en su zona; si queda fuera de todas, genera las cinco muestras. No cambia Tu color.
+
 ## Modelo
 
 HSV y HSB son nombres para el mismo modelo aquí: H = tono, S = saturación, V/B = brillo. Saturación aumenta hacia la derecha; brillo hacia arriba. Las zonas aproximan las proporciones de la referencia visual, no una teoría universal de armonía ni un estándar colorimétrico.

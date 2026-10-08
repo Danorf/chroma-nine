@@ -21,3 +21,8 @@ export function parseHex(value) {const m=/^#?([\da-f]{6}|[\da-f]{3})$/i.exec(val
 export function inZone(s,v,z) {return s>=z.s[0]&&s<=z.s[1]&&v>=z.v[0]&&v<=z.v[1];}
 export function palette(h) {return zones.map(z=>({h,s:(z.s[0]+z.s[1])/2,v:(z.v[0]+z.v[1])/2}));}
 export function ink(rgb) {const lum=rgb.map(c=>{c/=255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;}).reduce((a,c,i)=>a+c*[.2126,.7152,.0722][i],0);return lum>.179?'#111111':'#FFFFFF';}
+
+export function generatePalette(base,random=Math.random) {
+ const selected=zones.findIndex(z=>inZone(base.s,base.v,z));
+ return zones.map((z,i)=>i===selected?{...base}:{h:base.h,s:z.s[0]+random()*(z.s[1]-z.s[0]),v:z.v[0]+random()*(z.v[1]-z.v[0])});
+}

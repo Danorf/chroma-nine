@@ -1,4 +1,4 @@
-import {zones,hsvToRgb,rgbToHsv,hex,parseHex,inZone,palette,ink} from './color.js';
+import {zones,hsvToRgb,rgbToHsv,hex,parseHex,inZone,palette,ink,generatePalette} from './color.js';
 const $=id=>document.getElementById(id);
 function setTheme(dark){
  document.documentElement.dataset.theme=dark?'dark':'light';
@@ -34,5 +34,6 @@ $('hex-form').addEventListener('submit',e=>{e.preventDefault();const rgb=parseHe
 let timer;
 async function copy(value){try{await navigator.clipboard.writeText(value);$('toast').textContent='Copiado al portapapeles';}catch{$('toast').textContent='No se pudo copiar. Selecciona el código manualmente.';}$('toast').classList.add('visible');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('visible'),2400);}
 $('copy-current').addEventListener('click',()=>copy(hex(hsvToRgb(current.h,current.s,current.v))));
+$('generate-palette').addEventListener('click',()=>{colors=generatePalette(current);render();$('palette-status').textContent='Paleta generada a partir de tu color.';});
 $('copy-palette').addEventListener('click',()=>copy(colors.map(c=>hex(hsvToRgb(c.h,c.s,c.v))).join(', ')));
 render();
